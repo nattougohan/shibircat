@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<!-- Bootstrapの設定 -->
+	<!-- BootStrapのファイル内でjqueryを使用しているため、.jsファイルはjqueryから先に読み込む -->	
+	<link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"></link>
+	<script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+<title>しばねことり</title>
+</head>
+<body class="alert-success">
+	<form class="text-center" th:action="@{/index}" method="post">
+		<div class="btn-group" role="group" aria-label="ボタングループ">
+			<button class="btn btn-success" type="submit" name="animal" value="shibes">しば</button>
+			<button class="btn btn-warning" type="submit" name="animal" value="cats">ねこ</button>
+			<button class="btn btn-info" type="submit" name="animal" value="birds">とり</button>
+		</div>
+	</form>
+	<div class="col text-center" th:if="${resUrl != null}">
+		<img th:src="${resUrl}" alt="animals" class="img-fluid">
+	</div>
+</body>
+</html>
